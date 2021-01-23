@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ParksLookupApi.Models;
 
@@ -17,10 +19,14 @@ namespace ParksLookupApi.Controllers
 
     // GET API/parks
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get()
+    public ActionResult<IEnumerable<string>> Get()
     {
-      return _db.Parks.ToList();
+      return new string[] { "test controller connection" };
     }
+    // public ActionResult<IEnumerable<Park>> Get()
+    // {
+    //   return _db.Parks.ToList();
+    // }
 
     // POST API/parks
     [HttpPost]
