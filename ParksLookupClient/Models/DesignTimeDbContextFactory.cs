@@ -1,9 +1,9 @@
-using Microsoft.EntityFrameworkCore;ParksLookupClientParksLookupClientParksLookupClientParksLookupClientParksLookupClientParksLookupClientParksLookupClient
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace ParksLookup.Models{
+namespace ParksLookupClient.Models{
 	public class ParksLookupContextFactory : IDesignTimeDbContextFactory<ParksLookupContext>
 	{
 		ParksLookupContext IDesignTimeDbContextFactory<ParksLookupContext>.CreateDbContext(string[] args)

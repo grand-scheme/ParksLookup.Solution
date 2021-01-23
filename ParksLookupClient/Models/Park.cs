@@ -1,6 +1,6 @@
-using System.Collections.Generic; // if listsParksLookupClient
+using System.Collections.Generic; // if lists
 
-namespace ParksLookup.Models
+namespace ParksLookupClient.Models
 {
 	public class Park
 	{

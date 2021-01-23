@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using ParksLookup.Models;
+using ParksLookupClient.Models;
 
-namespace ParksLookup
+namespace ParksLookupClient
 {
 	public class Startup
 	{

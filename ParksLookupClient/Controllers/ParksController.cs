@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Mvc;ParksLookupClientParksLookupClient
-using ParksLookup.Models;
+using Microsoft.AspNetCore.Mvc;
+using ParksLookupClient.Models;
 using System.Collections.Generic;
 
-namespace ParksLookup.Controllers
+namespace ParksLookupClient.Controllers
 {
 	public class ParksController : Controller
 	{

@@ -1,6 +1,6 @@
-using Microsoft.AspNetCore.Mvc;ParksLookupClient
+using Microsoft.AspNetCore.Mvc;
 
-namespace ParksLookup.Controllers
+namespace ParksLookupClient.Controllers
 {
 	public class HomeController : Controller
 	{
