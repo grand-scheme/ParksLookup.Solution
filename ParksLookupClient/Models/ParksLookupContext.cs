@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;ParksLookupClientParksLookupClient
+using Microsoft.EntityFrameworkCore;
 
-namespaceParksLookupClientp.Models{
+namespace ParksLookupClient.Models{
 	public class ParksLookupContext : DbContext{
 		public DbSet<Park> Parks {get; set;}
 		public ParksLookupContext(DbContextOptions options) : base(options) { }
