@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using ParksLookupApi.Models;
 
 namespace ParksLookupApi
 {
@@ -25,6 +26,8 @@ namespace ParksLookupApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ParksLookupApiContext>(opt =>
+                opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -41,7 +44,10 @@ namespace ParksLookupApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
+                // NOTE: ^ THIS REDIRECTS INTO HTTPS, 
+                // WHICH IS ANNOYING IN DEVELOPMENT
+                // BRING THIS BACK LATER
             app.UseMvc();
         }
     }
