@@ -19,14 +19,14 @@ namespace ParksLookupApi.Controllers
 
     // GET API/parks
     [HttpGet]
-    public ActionResult<IEnumerable<string>> Get()
-    {
-      return new string[] { "test controller connection" };
-    }
-    // public ActionResult<IEnumerable<Park>> Get()
+    // public ActionResult<IEnumerable<string>> Get()
     // {
-    //   return _db.Parks.ToList();
+    //   return new string[] { "test controller connection" };
     // }
+    public ActionResult<IEnumerable<Park>> Get()
+    {
+      return _db.Parks.ToList();
+    }
 
     // POST API/parks
     [HttpPost]

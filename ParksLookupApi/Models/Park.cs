@@ -9,5 +9,7 @@ namespace ParksLookupApi.Models
 		public string City { get; set; }
 		public string State { get; set; }
 		public string NationalOrState { get; set; }
+		public string ValueToDelete { get; set; }
+		// NOTE: TESTING ^ DATABASE CREATION
 	}
 }

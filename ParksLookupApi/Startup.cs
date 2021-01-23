@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+// using Microsoft.Extensions.Hosting;
 using ParksLookupApi.Models;
 
 namespace ParksLookupApi
@@ -27,8 +28,10 @@ namespace ParksLookupApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ParksLookupApiContext>(opt =>
-                opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddCors();
+            services.AddDbContext<ParksLookupApiContext>(options =>
+                options.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
