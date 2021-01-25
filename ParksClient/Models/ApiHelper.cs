@@ -20,5 +20,14 @@ namespace ParksClient.Models
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
+
+    public static async Task Post(string newPark)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"parks", Method.POST);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(newPark);
+      var response = await client.ExecuteTaskAsync(request);
+    }
   }
 }

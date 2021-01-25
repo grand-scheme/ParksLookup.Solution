@@ -33,5 +33,11 @@ namespace ParksClient.Models
 
       return park;
     }
+
+    public static void Post(Park park)
+    {
+      string jsonPark = JsonConvert.SerializeObject(park);
+      var apiCallTask = ApiHelper.Post(jsonPark);
+    }
   }
 }
