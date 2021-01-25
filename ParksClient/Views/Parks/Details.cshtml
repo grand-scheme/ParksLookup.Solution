@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+  ViewData["Title"] = "@(Model.Name)";
+}
+
+<ul>
+  <li> Name: @Model.Name </li>
+  <li>Location: @Model.State </li>
+  <li>Type of Park: @Model.StateOrNational </li>
+</ul>
+
+<p>
+  <a href="/Parks/Edit/@(Model.ParkId)">Edit</a> <br />
+  <a href="/Parks/Delete/@(Model.ParkId)">Delete</a> <br />
+  <a href="/Parks">Home</a>
+</p>
