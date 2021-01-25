@@ -38,5 +38,13 @@ namespace ParksClient.Models
       request.AddJsonBody(editPark);
       var response = await client.ExecuteTaskAsync(request);
     }
+
+    public static async Task Delete(int id, string deletePark)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"parks/{id}", Method.DELETE);
+      request.AddHeader("Content-Type", "application/json");
+      var response = await client.ExecuteTaskAsync(request);
+    }
   }
 }

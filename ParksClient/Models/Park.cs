@@ -45,5 +45,10 @@ namespace ParksClient.Models
       string jsonPark = JsonConvert.SerializeObject(park);
       var apiCallTask = ApiHelper.Put(park.ParkId, jsonPark);
     }
+
+    public static void Delete(int id)
+    {
+      var apiCallTask = ApiHelper.Delete(id);
+    }
   }
 }
