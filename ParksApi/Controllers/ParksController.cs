@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
 
 namespace ParksApi.Controllers
@@ -23,6 +24,14 @@ namespace ParksApi.Controllers
       return _db.Parks.ToList();
     }
 
+    // GET: api/parks/#id
+    [HttpGet("{id}")]
+    public ActionResult <Park> Get(int id)
+    {
+      return _db.Parks
+        .FirstOrDefault(entry => entry.ParkId == id);
+    }
+    
     // POST: api/parks
     [HttpPost]
     public void Post([FromBody] Park park)
@@ -30,13 +39,23 @@ namespace ParksApi.Controllers
       _db.Parks.Add(park);
       _db.SaveChanges();
     }
-
-    // GET: api/parks/#id
-    [HttpGet("{id}")]
-    public ActionResult <Park> Get(int id)
+    
+    // PUT api/parks/#id
+    [HttpPut("{id}")]
+    public void Put(int id, [FromBody] Park park)
     {
-      return _db.Parks
-        .FirstOrDefault(entry => entry.ParkId == id);
+      park.ParkId = id;
+      _db.Entry(park).State = EntityState.Modified;
+      _db.SaveChanges();
+    }
+
+    // DELETE api/parks/#id
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+      var deletePark = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+      _db.Parks.Remove(deletePark);
+      _db.SaveChanges();
     }
   }
 }
