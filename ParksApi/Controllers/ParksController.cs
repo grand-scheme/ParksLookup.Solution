@@ -6,7 +6,7 @@ using ParksApi.Models;
 
 namespace ParksApi.Controllers
 {
-  [Route("api/controller")]
+  [Route("api/[controller]")]
   [ApiController]
   public class ParksController : ControllerBase
   {
@@ -19,9 +19,11 @@ namespace ParksApi.Controllers
 
     //GET: api/parks
     [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get()
+    // public ActionResult<IEnumerable<Park>> Get()
+    public ActionResult<IEnumerable<string>> Get()
     {
-      return _db.Parks.ToList();
+      return new string[] { "testValue", "another test" };
+      // return _db.Parks.ToList();
     }
 
     // GET: api/parks/#id
