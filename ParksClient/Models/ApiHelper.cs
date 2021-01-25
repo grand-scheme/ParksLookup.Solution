@@ -29,5 +29,14 @@ namespace ParksClient.Models
       request.AddJsonBody(newPark);
       var response = await client.ExecuteTaskAsync(request);
     }
+
+    public static async Task Put(int id, string editPark)
+    {
+      RestClient client = new RestClient("http://localhost:5000/api");
+      RestRequest request = new RestRequest($"parks/{id}", Method.PUT);
+      request.AddHeader("Content-Type", "application/json");
+      request.AddJsonBody(editPark);
+      var response = await client.ExecuteTaskAsync(request);
+    }
   }
 }
