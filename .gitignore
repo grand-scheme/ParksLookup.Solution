@@ -1,4 +1,4 @@
 obj/
 bin/
-_parksignore/
 .vscode
+parksignore/
