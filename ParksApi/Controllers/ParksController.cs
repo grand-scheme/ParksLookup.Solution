@@ -19,11 +19,9 @@ namespace ParksApi.Controllers
 
     //GET: api/parks
     [HttpGet]
-    // public ActionResult<IEnumerable<Park>> Get()
-    public ActionResult<IEnumerable<string>> Get()
+    public ActionResult<IEnumerable<Park>> Get()
     {
-      return new string[] { "testValue", "another test" };
-      // return _db.Parks.ToList();
+      return _db.Parks.ToList();
     }
 
     // GET: api/parks/#id
