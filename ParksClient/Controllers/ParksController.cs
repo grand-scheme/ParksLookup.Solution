@@ -18,16 +18,22 @@ namespace ParksClient.Controllers
     
     [HttpPost]
     public IActionResult Index(Park park)
-      {
-        Park.Post(park);
-        return RedirectToAction("Index");
-      }
+    {
+      Park.Post(park);
+      return RedirectToAction("Index");
+    }
         
     public IActionResult Details(int id)
-      {
-        var park = Park.GetDetails(id);
-        return View(park);
-      }
+    {
+      var park = Park.GetDetails(id);
+      return View(park);
+    }
+    
+    public IActionResult Edit(int id)
+    {
+      var park = Park.GetDetails(id);
+      return View(park);
+    }
   
     [HttpPost]
     public IActionResult Details(int id, Park park)
@@ -36,13 +42,6 @@ namespace ParksClient.Controllers
       Park.Put(park);
       return RedirectToAction("Details", id);
     }
-  
-    public IActionResult Edit(int id)
-    {
-      var park = Park.GetDetails(id);
-      return View(park);
-    }
-
     public IActionResult Delete(int id)
     {
       Park.Delete(id);
