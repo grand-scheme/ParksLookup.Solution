@@ -4,7 +4,7 @@
 }
 
 <ul>
-  <li> Name: @Model.Name </li>
+  <li>Name: @Model.Name </li>
   <li>Location: @Model.State </li>
   <li>Type of Park: @Model.StateOrNational </li>
 </ul>
@@ -13,4 +13,5 @@
   <a href="/Parks/Edit/@(Model.ParkId)">Edit</a> <br />
   <a href="/Parks/Delete/@(Model.ParkId)">Delete</a> <br />
   <a href="/Parks">Home</a>
+  @* NOTE: this home link is just to the parks subdirectory *@
 </p>
