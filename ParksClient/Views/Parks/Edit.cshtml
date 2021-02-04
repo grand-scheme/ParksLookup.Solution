@@ -4,7 +4,7 @@
   ViewData["Title"] = "Edit @(Model.Name)";
 }
 
-@using (Html.BeginForm())
+@* @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.ParkId)
   <br />
@@ -17,18 +17,20 @@
   @Html.LabelFor(model => model.StateOrNational)
   @Html.EditorFor(model => model.StateOrNational)
   <br /> 
-  <button type="submit">Submit Changes</button>
-}
+  <input type="submit" value="Save Changes" class="btn" />
+} *@
 
-@* <form action="/Parks/Details/@(Model.ParkId)" method="post">
+<form action="/Parks/Details/@(Model.ParkId)" method="post">
 <label for="name">Park Name:
-  <input id="name" name="name" type="text" value="@(Model.Name)">
+  <input id="name" name="name" type="text" value="@(Model.Name)"><br />
 <label for="state">Location (US State Name):
-  <input id="state" name="state" type="text" value="@(Model.State)">
+  <input id="state" name="state" type="text" value="@(Model.State)"><br />
 <label for="stateornational">State Park or National Park:
-  <input id="stateornational" name="stateornational" type="text" value="@(Model.StateOrNational)">
+  <input id="stateornational" name="stateornational" type="text" value="@(Model.StateOrNational)"><br />
   <button type="submit">Submit Changes</button>
-</form> *@
+</form>
+
 <p>
   <a href="/Parks/Details/@(Model.ParkId)"> Return to @Model.Name </a>
+  @* NOTE: ^ change this to an action link as well *@
 </p>
