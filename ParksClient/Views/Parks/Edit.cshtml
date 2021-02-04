@@ -1,9 +1,26 @@
+@model ParksClient.Models.Park
 @{
   Layout = "_Layout";
   ViewData["Title"] = "Edit @(Model.Name)";
 }
 
-<form action="/Parks/Details/@(Model.ParkId)" method="post">
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.ParkId)
+  <br />
+  @Html.LabelFor(model => model.Name)
+  @Html.EditorFor(model => model.Name)
+  <br />
+  @Html.LabelFor(model => model.State)
+  @Html.EditorFor(model => model.State)
+  <br />
+  @Html.LabelFor(model => model.StateOrNational)
+  @Html.EditorFor(model => model.StateOrNational)
+  <br /> 
+  <button type="submit">Submit Changes</button>
+}
+
+@* <form action="/Parks/Details/@(Model.ParkId)" method="post">
 <label for="name">Park Name:
   <input id="name" name="name" type="text" value="@(Model.Name)">
 <label for="state">Location (US State Name):
@@ -11,7 +28,7 @@
 <label for="stateornational">State Park or National Park:
   <input id="stateornational" name="stateornational" type="text" value="@(Model.StateOrNational)">
   <button type="submit">Submit Changes</button>
-</form>
+</form> *@
 <p>
   <a href="/Parks/Details/@(Model.ParkId)"> Return to @Model.Name </a>
 </p>
