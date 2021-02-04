@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.Collections.Generic;
-using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -9,12 +8,16 @@ namespace ParksClient.Models
   public class Park
   {
     public int ParkId {get;set;}
+
     [Required]
     public string Name {get;set;}
+    
     [Required]
     public string State {get;set;}
+
     [Required]
     public string StateOrNational {get;set;}
+
 
     public static List<Park> GetParks()
     {
@@ -23,7 +26,6 @@ namespace ParksClient.Models
 
       JArray jsonResponse = JsonConvert.DeserializeObject<JArray>(result);
       List<Park> parkList = JsonConvert.DeserializeObject<List<Park>>(jsonResponse.ToString());
-
       return parkList;
     }
 
