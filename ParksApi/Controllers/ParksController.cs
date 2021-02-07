@@ -78,5 +78,17 @@ namespace ParksApi.Controllers
   // using tutorial from 
   // https://stackoverflow.com/questions/38752848/paging-the-huge-data-that-is-returned-by-the-web-api?newreg=796af7cad18a4f51956c168615570be4
   // to try implementing pagination
+    public IActionResult GetParks(int? page, int? count)
+    {
+      var takePage = page ?? 1;
+      var takeCount = count ?? DefaultPageRecordCount;
+
+      var calls = context.Parks
+          .Skip((takePage - 1) * takeCount)
+          .Take(takeCount)
+          .ToList();
+
+      return Json(calls);
+    }
   }
 }
