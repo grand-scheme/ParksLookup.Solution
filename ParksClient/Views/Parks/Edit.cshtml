@@ -24,9 +24,67 @@
 <label for="name">Park Name:
   <input id="name" name="name" type="text" value="@(Model.Name)"><br />
 <label for="state">Location (US State Name):
-  <input id="state" name="state" type="text" value="@(Model.State)"><br />
+  <input list="states" name="state" id="state" value="@(Model.State)">
+  <datalist id="states">
+    <option value="Alabama" id="Alabama"></option>
+    <option value="Alaska" id="Alaska"></option>
+    <option value="Arizona" id="Arizona"></option>
+    <option value="Arkansas" id="Arkansas"></option>
+    <option value="California" id="California"></option>
+    <option value="Colorado" id="Colorado"></option>
+    <option value="Connecticut" id="Connecticut"></option>
+    <option value="Delaware" id="Delaware"></option>
+    <option value="District of Columbia" id="District of Columbia"></option>
+    <option value="Florida" id="Florida"></option>
+    <option value="Georgia" id="Georgia"></option>
+    <option value="Hawaii" id="Hawaii"></option>
+    <option value="Idaho" id="Idaho"></option>
+    <option value="Illinois" id="Illinois"></option>
+    <option value="Indiana" id="Indiana"></option>
+    <option value="Iowa" id="Iowa"></option>
+    <option value="Kansas" id="Kansas"></option>
+    <option value="Kentucky" id="Kentucky"></option>
+    <option value="Louisiana" id="Louisiana"></option>
+    <option value="Maine" id="Maine"></option>
+    <option value="Maryland" id="Maryland"></option>
+    <option value="Massachusetts" id="Massachusetts"></option>
+    <option value="Michigan" id="Michigan"></option>
+    <option value="Minnesota" id="Minnesota"></option>
+    <option value="Mississippi" id="Mississippi"></option>
+    <option value="Missouri" id="Missouri"></option>
+    <option value="Montana" id="Montana"></option>
+    <option value="Nebraska" id="Nebraska"></option>
+    <option value="Nevada" id="Nevada"></option>
+    <option value="New Hampshire" id="New Hampshire"></option>
+    <option value="New Jersey" id="New Jersey"></option>
+    <option value="New Mexico" id="New Mexico"></option>
+    <option value="New York" id="New York"></option>
+    <option value="North Carolina" id="North Carolina"></option>
+    <option value="North Dakota" id="North Dakota"></option>
+    <option value="Ohio" id="Ohio"></option>
+    <option value="Oklahoma" id="Oklahoma"></option>
+    <option value="Oregon" id="Oregon"></option>
+    <option value="Pennsylvania" id="Pennsylvania"></option>
+    <option value="Puerto Rico" id="Puerto Rico"></option>
+    <option value="Rhode Island" id="Rhode Island"></option>
+    <option value="South Carolina" id="South Carolina"></option>
+    <option value="South Dakota" id="South Dakota"></option>
+    <option value="Tennessee" id="Tennessee"></option>
+    <option value="Texas" id="Texas"></option>
+    <option value="Utah" id="Utah"></option>
+    <option value="Vermont" id="Vermont"></option>
+    <option value="Virginia" id="Virginia"></option>
+    <option value="Washington" id="Washington"></option>
+    <option value="West Virginia" id="West Virginia"></option>
+    <option value="Wisconsin" id="Wisconsin"></option>
+    <option value="Wyoming" id="Wyoming"></option>
+  </datalist> <br />
+
 <label for="stateornational">State Park or National Park:
-  <input id="stateornational" name="stateornational" type="text" value="@(Model.StateOrNational)"><br />
+  <select id="stateornational" name="stateornational" value="@(Model.StateOrNational)">
+    <option value="state">State Park</option>
+    <option value="national">National Park</option>
+    </select><br />
   <button type="submit">Submit Changes</button>
 </form>
 
