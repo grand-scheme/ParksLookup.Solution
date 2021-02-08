@@ -5,12 +5,10 @@
 ### _January 22nd, 2021_  
 ----------------------
 ## Description:
-----------------------
 This project is a Web Api built in C#, called locally with information stored in an Entity-built database. This is to allow the practice of structuring a web application to call and receive information from an Api, but without making six hundred calls on someone else's data plan. This application will allow you to find State and National Parks throughout the United States, as well as create your own.
 
 ----------------------
 ## Project Criteria:  
-----------------------
 
 As referenced from the [Epicodus](https://epicodus.com) program's curriculum:  
 
@@ -38,20 +36,17 @@ The "further exploration" objective chosen for this project was _pagination_.
 
 -------------------------------
 ## Known Issues / Current Bugs:
-----------------------
 1. "Create New Park" `ApiClient` post method returns a 404 if routed through any non-index page.
 2. Attempts at implementing search or client-routed endpoints results in JObject/JArray conflicts.
 
 -------------------------------
 ## Bug log:
-----------------------
 1. Local SQL connection server gets fussy. Replaced "localhost" routing in MySQL Workbench and in `appsettings.json` with "127.0.0.1".
 
 -------------------------------
 ## Setup:
-----------------------
 
- Prior to downloading:
+### Prior to downloading:
 > Each of the following programs and softwares will be listed with the version numbers used in making this application. While you may not need to have these _specific_ versions installed, compatibility cannot be guaranteed with earlier or later releases.
 >
 > You will need to have the following installed and set up on your local machine before you will be able to utilize this program:
@@ -62,19 +57,18 @@ The "further exploration" objective chosen for this project was _pagination_.
 For more step-by-step instructions on installing these programs, please visit [these Epicodus tutorials](https://www.learnhowtoprogram.com/c-and-net/getting-started-with-c).
 
 ----------------------
-## To view locally on your machine / download from browser:  
-----------------------
+### To view locally on your machine / download from browser:  
+
 1. Find the green **Code** button above the file list on this project's [main GitHub repository page](https://github.com/grand-scheme/ParksLookup.Solution).
 
-2a. Select the button to open a drop-down menu. Select "Open with GitHub Desktop" or, if you do not have this program installed, download the compressed .zip file.
+2. Select the button to open a drop-down menu. Select "Open with GitHub Desktop" or, if you do not have this program installed, download the compressed .zip file.
 
-2b. Extract the .zip file to your local machine.
+3. Extract the .zip file to your local machine.
 
-3. Directions were accurate as of January 22nd, 2021. If GitHub has since changed their protocol, please see [the GitHub help docs](https://docs.github.com/en) for up-to-date information.
+4. Directions were accurate as of January 22nd, 2021. If GitHub has since changed their protocol, please see [the GitHub help docs](https://docs.github.com/en) for up-to-date information.
 
 ----------------------
-## To clone this project to your machine: 
-----------------------
+### To clone this project to your machine: 
 > The following directions are based on Git Bash for a Windows machine; you may have to adjust terminology based on your local specs.
 1. Launch your terminal of choice. 
 
@@ -92,7 +86,7 @@ where `NEW-FOLDER` is where you would type the name of the folder you would like
 
 ----------------------
 ## To run this project on your machine:
-----------------------
+
 ### ParksApi: 
 1. Once you have the project locally stored, navigate to its main directory in your terminal of choice. By default, this is `ParksLookup.Solution`.
 
@@ -124,13 +118,13 @@ You will need to replace `USER` and `PASSWORD` with **your** MySql username and 
 8. In your command line, input as separate commands:\
 `$ dotnet restore`\
 `$ dotnet build`\
-`$ dotnet run`\
+`$ dotnet run`
 
 9.  If all goes well, the command terminal should inform you that a local host has been launched for this program at `http://localhost:5004`. This will be your browser client.
 
 -------------------------------
 ## Testing API Calls and Endpoints:  
--------------------------------
+
 ### Base Calls:
 Once you have `ParksApi` running, you can make test API calls in your browser or in [Postman](https://www.postman.com/). By default, the root url for the API will be located at **http://localhost:5000/** or **https://localhost:5001/**. For the rest of this section, this will be referred to as `{URL}`
 
@@ -150,7 +144,8 @@ To customize your call, you may use the following endpoints:
 - _**`page=`**_ Page number. Page numbers 0, 1, and undeclared return the same results.
 
 Endpoints can be stacked, but not all combinations will return data. \
-	>> _e.g._, `{URL}/api/parks/?stateornatl=national&state=colorado&count=1` will return the one National Park in Colorado.
+	>> _e.g._, `{URL}/api/parks/?stateornatl=national&state=colorado&count=1` will return the one National Park in Colorado. \
+	`{URL}/api/parks/?stateornatl=state&count=50&page=2` will return the 51st through 100th entries classified as State Parks.
 
 To make a POST or PUT request to your local copy of the API database, the BODY of your request must follow this format:
 ```json
@@ -180,7 +175,6 @@ Search, filter, and pagination is not yet available in the web client.
 
 -------------------------------
 ## Technologies Used:  
--------------------------------
 - Visual Studio Code
 - Windows Powershell
 - MySQL Workbench
@@ -190,15 +184,15 @@ Search, filter, and pagination is not yet available in the web client.
 - Entity Framework Core .NET 2.2.4
 -------------------------------
 ## Tutorials Referenced:  
--------------------------------
-API Pagination:
+### API Pagination:
 - [stack overflow (1)](https://stackoverflow.com/questions/38752848/paging-the-huge-data-that-is-returned-by-the-web-api?newreg=796af7cad18a4f51956c168615570be4)
 - [stack overflow (2)](https://stackoverflow.com/questions/1364033/linq-take-question)
 - [c-sharp corner](https://www.c-sharpcorner.com/article/how-to-implement-paging-using-skip-and-take-operators-in-linq/)
 
+While there were a few other methods presented for paginating Api results, I decided to go with `System.Linq`'s `Take()` and `Skip()` methods for their simple flexibility.
+
 -------------------------------
 ## License
--------------------------------
 - _GNU AGPLv3_  
 - Project copyright (c) 2021 **_Shannon Grantski_**  
 - Project criteria quoted text copyright (c) 2021 Epicodus, Inc.
