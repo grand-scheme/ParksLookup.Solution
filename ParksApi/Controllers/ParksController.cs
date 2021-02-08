@@ -117,9 +117,10 @@ namespace ParksApi.Controllers
         query = query.Where(entry => entry.StateOrNational == stateOrNatl);
       }
 
-      var list = query.Take(takeCount).Skip(takePage);
+      var list = query.Skip((takePage) * takeCount).Take(takeCount);
       return list.ToList();
     }
     // so far: can limit query to #, but when trying to skip, doesn't progress yet. syntax not quite right.
+    // https://www.c-sharpcorner.com/article/how-to-implement-paging-using-skip-and-take-operators-in-linq/
   }
 }
