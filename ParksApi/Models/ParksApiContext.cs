@@ -15,28 +15,19 @@ namespace ParksApi.Models
       builder.Entity<Park>()
       .HasData(
         new Park {
-          ParkId = 1,
-          Name = "Mount Rainier",
-          State = "Washington",
-          StateOrNational = "National"
+          ParkId = 1, Name = "Mount Rainier", State = "Washington", StateOrNational = "National"
         },
         new Park {
-          ParkId = 2,
-          Name = "North Cascades",
-          State = "Washington",
-          StateOrNational = "National"
+          ParkId = 2, Name = "North Cascades", State = "Washington", StateOrNational = "National"
         },
         new Park {
-          ParkId = 3,
-          Name = "Olympic",
-          State = "Washington",
-          StateOrNational = "National"
+          ParkId = 3, Name = "Olympic", State = "Washington", StateOrNational = "National"
         },
         new Park {
-          ParkId = 4,
-          Name = "Crater Lake",
-          State = "Oregon",
-          StateOrNational = "National"
+          ParkId = 4, Name = "Crater Lake", State = "Oregon", StateOrNational = "National"
+        },
+        new Park {
+          ParkId = 5, Name = "test2", State = "Oregon", StateOrNational = "State"
         }
       );
     }
