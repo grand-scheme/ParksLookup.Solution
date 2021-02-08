@@ -98,9 +98,13 @@ namespace ParksApi.Controllers
     [HttpGet]
     public ActionResult<IEnumerable<Park>> Get(string name, string state, string stateOrNatl, int? page, int? count)
     {
-      var takePage = page ?? 0;
-      var takeCount = count ?? 1;
+      int p = page ?? 0;
+      p = ((p > 0) ? (p - 1) : p);
+
+      int c = count ?? 2;
+
       var query = _db.Parks.AsQueryable();
+
       
       if (name != null)
       {
@@ -117,7 +121,7 @@ namespace ParksApi.Controllers
         query = query.Where(entry => entry.StateOrNational == stateOrNatl);
       }
 
-      var list = query.Skip((takePage) * takeCount).Take(takeCount);
+      var list = query.Skip(p * c).Take(c);
       return list.ToList();
     }
     // so far: can limit query to #, but when trying to skip, doesn't progress yet. syntax not quite right.
