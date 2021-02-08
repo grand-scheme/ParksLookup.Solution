@@ -1,0 +1,18 @@
+@{
+  Layout = "_Layout";
+  ViewData["Title"] = "Home";
+}
+
+@foreach (Park park in Model)
+{
+  <ul>
+    <li> Name: 
+      <a href="/Parks/Details/@(park.ParkId)">
+        @park.Name 
+      </a>
+    </li>
+    <li>Location: @park.State </li>
+    <li>Type of Park: @park.StateOrNational </li>
+  </ul>
+}
+<hr />

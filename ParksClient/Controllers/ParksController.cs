@@ -12,6 +12,10 @@ namespace ParksClient.Controllers
   {
     public IActionResult Index()
     {
+      return View();
+    }
+    public IActionResult Show()
+    {
       var allParks = Park.GetParks();
       return View(allParks);
     }

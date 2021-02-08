@@ -3,19 +3,6 @@
   ViewData["Title"] = "Home";
 }
 
-@foreach (Park park in Model)
-{
-  <ul>
-    <li> Name: 
-      <a href="/Parks/Details/@(park.ParkId)">
-        @park.Name 
-      </a>
-    </li>
-    <li>Location: @park.State </li>
-    <li>Type of Park: @park.StateOrNational </li>
-  </ul>
-}
-<hr />
 <form action="/parks" method="post">
 <label for="name">Park Name:
   <input id="name" name="name" type="text"><br />
