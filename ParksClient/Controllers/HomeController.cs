@@ -8,11 +8,12 @@ using ParksClient.Models;
 
 namespace ParksClient.Controllers
 {
-    public class HomeController : Controller
-    {
-        public IActionResult Index()
-        {
-            return RedirectToAction("Index", "Parks");
-        }
-    }
+	public class HomeController : Controller
+	{
+		[HttpGet("/")]
+		public ActionResult Index()
+		{
+			return View();
+		}
+	}
 }
