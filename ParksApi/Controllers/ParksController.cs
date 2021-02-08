@@ -17,30 +17,34 @@ namespace ParksApi.Controllers
       _db = db;
     }
 
-    // NOTE: THIS WAS COMMENTED OUT FOR TESTING
     //GET: api/parks
-    // [HttpGet]
-    // public ActionResult<IEnumerable<Park>> Get(string name, string state, string stateOrNatl)
-    // {
-    //   var query = _db.Parks.AsQueryable();
-      
-    //   if (name != null)
-    //   {
-    //     query = query.Where(entry => entry.Name == name);
-    //   }
-      
-    //   if (state != null)
-    //   {
-    //     query = query.Where(entry => entry.State == state);
-    //   }
-      
-    //   if (stateOrNatl != null)
-    //   {
-    //     query = query.Where(entry => entry.StateOrNational == stateOrNatl);
-    //   }
+    [HttpGet]
+    public ActionResult<IEnumerable<Park>> Get(string name, string state, string stateOrNatl, int? page, int? count)
+    {
+      int p = page ?? 0;
+      p = ((p > 0) ? (p - 1) : p);
 
-    //   return query.ToList();
-    // }
+      int c = count ?? 10;
+      var query = _db.Parks.AsQueryable();
+      
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
+      
+      if (state != null)
+      {
+        query = query.Where(entry => entry.State == state);
+      }
+      
+      if (stateOrNatl != null)
+      {
+        query = query.Where(entry => entry.StateOrNational == stateOrNatl);
+      }
+
+      var list = query.Skip(p*c).Take(c);
+      return list.ToList();
+    }
 
     // GET: api/parks/#id
     [HttpGet("{id}")]
@@ -75,56 +79,5 @@ namespace ParksApi.Controllers
       _db.Parks.Remove(deletePark);
       _db.SaveChanges();
     }
-  
-  // using tutorial from 
-  // https://stackoverflow.com/questions/38752848/paging-the-huge-data-that-is-returned-by-the-web-api?newreg=796af7cad18a4f51956c168615570be4
-  // to try implementing pagination
-    // public IActionResult GetParks(int? page, int? count)
-    // {
-    //   var takePage = page ?? 1;
-    //   var takeCount = count ?? DefaultPageRecordCount;
-
-    //   var calls = context.Parks
-    //       .Skip((takePage - 1) * takeCount)
-    //       .Take(takeCount)
-    //       .ToList();
-
-    //   return Json(calls);
-    // }
-  // -----------------------------
-  // using tutorial from: 
-  // https://stackoverflow.com/questions/1364033/linq-take-question
-//GET: api/parks
-    [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get(string name, string state, string stateOrNatl, int? page, int? count)
-    {
-      int p = page ?? 0;
-      p = ((p > 0) ? (p - 1) : p);
-
-      int c = count ?? 2;
-
-      var query = _db.Parks.AsQueryable();
-
-      
-      if (name != null)
-      {
-        query = query.Where(entry => entry.Name == name);
-      }
-      
-      if (state != null)
-      {
-        query = query.Where(entry => entry.State == state);
-      }
-      
-      if (stateOrNatl != null)
-      {
-        query = query.Where(entry => entry.StateOrNational == stateOrNatl);
-      }
-
-      var list = query.Skip(p * c).Take(c);
-      return list.ToList();
-    }
-    // so far: can limit query to #, but when trying to skip, doesn't progress yet. syntax not quite right.
-    // https://www.c-sharpcorner.com/article/how-to-implement-paging-using-skip-and-take-operators-in-linq/
   }
 }
